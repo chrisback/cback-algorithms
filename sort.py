@@ -1,3 +1,27 @@
+'''
+Sort functions
+'''
+
+def bubble_sort(arr: list, in_place=False) -> list:
+
+    if in_place:
+        res = arr
+    else:
+        res = arr.copy()
+
+    i = 0
+    while i < len(res):
+        j = len(res)-1
+        while j > i:
+            a = res[j-1]
+            b = res[j]
+            if a > b:
+                res[j] = a
+                res[j-1] = b
+            j -= 1
+        i += 1
+    return res
+
 def insertion_sort(arr: list, in_place=False) -> list:
     '''
     O(n^2)

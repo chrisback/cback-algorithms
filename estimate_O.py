@@ -1,10 +1,10 @@
 import json
 import random
 import time
-from sort import insertion_sort, selection_sort, merge_sort
+from sort import insertion_sort, selection_sort, merge_sort, bubble_sort
 
 def timeit(func, size=1000, iterations=1, multiples=1):
-    results = {}
+    res = {}
     for i in range(1, multiples+1):
         n = size*i
         multiple_results = []
@@ -13,12 +13,13 @@ def timeit(func, size=1000, iterations=1, multiples=1):
             start = time.time()
             func(arr)
             multiple_results.append(time.time() - start)
-        results[n] = sum(multiple_results) / iterations
-    return results
+        res[n] = sum(multiple_results) / iterations
+    return res
 
 if __name__ == "__main__":
     results = {}
-    #results["insertion_sort"] = timeit(insertion_sort, 10, 5, 10)
-    #results["selection_sort"] = timeit(selection_sort, 10, 5, 10)
-    results["merge_sort"] = timeit(merge_sort, 10000, 5, 10)
+    results["insertion_sort"] = timeit(insertion_sort, 100, 5, 10)
+    results["selection_sort"] = timeit(selection_sort, 100, 5, 10)
+    results["bubble_sort"] = timeit(bubble_sort, 100, 5, 10)
+    results["merge_sort"] = timeit(merge_sort, 1000, 5, 10)
     print(json.dumps(results, indent=2))

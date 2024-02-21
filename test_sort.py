@@ -1,4 +1,4 @@
-from sort import insertion_sort, selection_sort, merge_sort
+from sort import insertion_sort, selection_sort, merge_sort, bubble_sort
 
 def test_insertion_sort():
     arr = [2, 5, 7, 3, 20, 1, 0]
@@ -31,4 +31,9 @@ def test_selection_sort_0_1_length():
 def test_merge_sort():
     arr = [2, 5, 7, 3, 20, 1, 0]
     assert merge_sort(arr) == [0, 1, 2, 3, 5, 7, 20]
+    assert arr == [2, 5, 7, 3, 20, 1, 0]
+
+def test_bubble_sort():
+    arr = [2, 5, 7, 3, 20, 1, 0]
+    assert bubble_sort(arr) == [0, 1, 2, 3, 5, 7, 20]
     assert arr == [2, 5, 7, 3, 20, 1, 0]
